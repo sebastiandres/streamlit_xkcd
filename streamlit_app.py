@@ -63,5 +63,5 @@ if True:
 * [Streamlit API](https://docs.streamlit.io/)
 * [Code in github](https://github.com/sebastiandres/xkcd_streamlit)
 
-By [sebastiandres](https://linktr.ee/sebastiandres) on 2021-07-08.
+By [sebastiandres](https://linktr.ee/sebastiandres) on 2021-07-08, inspired on [http://xkcdgraphs.com/](http://xkcdgraphs.com/).
 """

@@ -1,6 +1,12 @@
-# Welcome to Streamlit!
+# xkcd plot
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+## Test it online
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
+[https://share.streamlit.io/sebastiandres/xkcd_streamlit/main](https://share.streamlit.io/sebastiandres/xkcd_streamlit/main)
+
+## Run it locally
+
+* Download it from [github](https://github.com/sebastiandres/xkcd_streamlit)
+* Install the libraries mentioned in [requirements.txt](https://github.com/sebastiandres/xkcd_streamlit/blob/main/requirements.txt)
+* Run it
+```streamlit run streamlit_app.py```

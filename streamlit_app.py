@@ -3,14 +3,14 @@ import streamlit as st
 import numpy as np
 from numpy import * #sin, cos, tan, log, exp
 
-"""
-# XKCD-style Graphs
-You can use functions as sin, cos, tan, log, exp, and others.
-"""
+st.set_page_config(
+    page_title='XKCD-style plots with streamlit',
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
 
 def xkcd_plot(f, title, xlabel, ylabel, xmin, xmax, Nx):
-    # Based on "Stove Ownership" from XKCD by Randall Munroe
-    # https://xkcd.com/418/
+
     with plt.xkcd():
         # Create the figure
         fig = plt.figure()
@@ -44,24 +44,32 @@ def xkcd_plot(f, title, xlabel, ylabel, xmin, xmax, Nx):
         ax.set_ylabel(ylabel)
         return fig
 
-if True:
-    f = st.text_input("Equation","x*sin(x)")
-    title = st.text_input("Title","My title")
-    xlabel = st.text_input("x-label","x")
-    ylabel = st.text_input("y-label","y")
-    xmin = st.number_input("x min", -10)
-    xmax = st.number_input("x max", +10)
-    Nx = 1000
-    try:
-        fig = xkcd_plot(f, title, xlabel, ylabel, xmin, xmax, Nx)
-        st.pyplot(fig)
-    except:
-        st.markdown("# Error evaluating the function.")
-        st.markdown("## Please fix and try again")
-"""
-### Links: 
+# The side bar
+st.sidebar.markdown("**Parameters**")
+f = st.sidebar.text_input("Equation","sin(5*x)/x")
+title = st.sidebar.text_input("Title","My title")
+xlabel = st.sidebar.text_input("x label","x")
+ylabel = st.sidebar.text_input("y label","y")
+xmin = st.sidebar.number_input("x min", value=-5)
+xmax = st.sidebar.number_input("x max", value=+5)
+Nx = 1000
+st.sidebar.markdown("**Examples**")
+st.sidebar.code("abs((x+4)*x)")
+st.sidebar.code("exp(-x**2)")
+
+links_md = """**Links**
 * [Streamlit API](https://docs.streamlit.io/)
 * [Code in github](https://github.com/sebastiandres/xkcd_streamlit)
 
-By [sebastiandres](https://linktr.ee/sebastiandres) on 2021-07-08, inspired on [http://xkcdgraphs.com/](http://xkcdgraphs.com/).
+By [sebastiandres](https://linktr.ee/sebastiandres) on 2021-07-08
+
+Inspired on [http://xkcdgraphs.com/](http://xkcdgraphs.com/)
 """
+st.sidebar.markdown(links_md)
+# The main view
+try:
+    fig = xkcd_plot(f, title, xlabel, ylabel, xmin, xmax, Nx)
+    st.pyplot(fig)
+except:
+    st.markdown("# Error evaluating the function.")
+    st.markdown("## Please fix and try again")

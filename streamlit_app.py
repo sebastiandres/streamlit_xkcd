@@ -36,7 +36,7 @@ Inspirado en [http://xkcdgraphs.com/](http://xkcdgraphs.com/)
                          "clean_functions":'Delete functions',
                          "add_function":'Add new function',
                          "graph_expander":"Graph configuration",
-                         "equation": "Equation examples",
+                         "equation": "Equation",
                          "title_text": "Title",
                          "title_value": "My Custom Title",
                          "xlabel_text": "x label",

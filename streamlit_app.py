@@ -38,6 +38,7 @@ with st.sidebar.beta_expander(translate("functions_expander")):
         st.session_state['f_list'].append( (f, c) )
     if col2.button(translate("clean_functions")):
         st.session_state['f_list'] = []
+    st.write(translate("functions_link"))
 
 with st.sidebar.beta_expander(translate("graph_expander")):
     title = st.text_input(translate("title_text"), translate("title_value"))
@@ -50,9 +51,10 @@ st.sidebar.markdown(translate("links_md"))
 
 # The main view
 try:
-    fig = xkcd_plot(st.session_state['f_list'], title, xlabel, ylabel, xmin, xmax, Nx=1000)
+    fig = xkcd_plot(st.session_state['f_list'], title, xlabel, ylabel, xmin, xmax, Nx=1001)
     st.pyplot(fig)
 except Exception as e:
+    st.session_state['f_list'] = []
     st.error(translate("error_warning"))
     st.warning(translate("error_advice"))
     st.exception(e)

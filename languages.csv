@@ -16,6 +16,7 @@ xmax_text;Valor máximo de x;x max
 examples;Ejemplos de funciones;Examples
 error_warning;Se ha producido un error al evaluar la función.;Error when evaluating the function!
 error_advice;Por favor, modifica los parámetros e inténtalo de nuevo.;Please fix and try again.
+functions_link;Todas las [funciones](https://numpy.org/doc/stable/reference/routines.math.html);See all [functions](https://numpy.org/doc/stable/reference/routines.math.html)
 links_md;"**Enlaces**
 * [API de Streamlit](https://docs.streamlit.io/)
 * [Código en github](https://github.com/sebastiandres/xkcd_streamlit)

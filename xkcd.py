@@ -12,18 +12,18 @@ def xkcd_plot(f_list, title, xlabel, ylabel, xmin, xmax, Nx):
         ax.spines.right.set_color('none')
         ax.spines.top.set_color('none')
         # Eval the data
-        x = np.linspace(xmin, xmax, num=Nx) + 1E-16 # So if we divide by x no errors
-        y_list = []
+        x = np.linspace(xmin, xmax, num=Nx) # So if we divide by x no errors
+        ymin_list, ymax_list = [], []
         for f, c in f_list:
             y = eval(f)
+            # Mask infinite values
+            y[logical_not(isfinite(y))] = nan 
             # Plot
             ax.plot(x, y, color=c)
-            y_list.append(y)
-        y = np.array(y_list)
-        # Set the limits for the plot
+            ymin_list.append( int(np.floor(y[isfinite(y)].min())-1) )
+            ymax_list.append( int(np.ceil(y[isfinite(y)].max())+1) )
         if len(f_list)>0:
-            ymin = int(np.floor(y.min())-1)
-            ymax = int(np.ceil(y.max())+1)
+            ymin, ymax = min(ymin_list), max(ymax_list)
         else:
             ymin, ymax = xmin, xmax
         ax.set_xlim([xmin, xmax])
